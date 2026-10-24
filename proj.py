@@ -1,10 +1,10 @@
 from pathlib import Path
 
-p = Path(r'C:\Users\arthu\OneDrive\Área de Trabalho\projeto POO\projeto iniciante\arquivos')
+p = Path(__file__).parent / "arquivos"
 
 for item in p.iterdir():
 
-    if item.is_file and item.suffix:
+    if item.is_file() and item.suffix:
         nome_da_pasta = item.suffix.replace(".", "")
         nova_pasta = p / item.suffix
         nova_pasta.mkdir(parents=True, exist_ok=True)
